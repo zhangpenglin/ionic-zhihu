@@ -1,0 +1,101 @@
+<ion-view view-title="知乎">
+	<ion-header-bar class="bar-subheader">
+		<div class="tab">
+			<ul class="clearfix">
+				<li ng-click="changeslide(0)" ng-class="{act:index==0}">热门推荐</li>
+				<li ng-click="changeslide(1)" ng-class="{act:index==1}">热门收藏</li>
+				<li ng-click="changeslide(2)" ng-class="{act:index==2}">本月热榜</li>
+				<li ng-click="changeslide(3)" ng-class="{act:index==3}">今日热榜</li>
+				<li class="border"></li>
+			</ul>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
+		</ion-refresher>
+
+		<ion-slide-box on-slide-changed="slideHasChanged(index)" show-pager="false" delegate-handle="pager">
+			<ion-slide>
+				<div class="homebox">
+					<div class="question">
+						<ion-slide-box delegate-handle="banner" show-pager="false" auto-play="true" does-continue="true" slide-interval="2000">
+							<ion-slide>
+								<div class="imgbox">
+									<img src="img/banner_1.jpg" style="width: 100%;"/>
+								</div>
+							</ion-slide>
+							<ion-slide>
+								<div class="imgbox">
+									<img src="img/banner_2.jpg" style="width: 100%;"/>
+								</div>
+							</ion-slide>
+							<ion-slide>
+								<div class="imgbox">
+									<img src="img/banner_3.jpg" style="width: 100%;" />
+								</div>
+							</ion-slide>
+						</ion-slide-box>
+
+						<ul>
+							<li ng-repeat="data in datas track by $index" ng-click="openModal(data)">
+								<h1>{{data.title}}</h1>
+								<div class="row">
+									<div class="left col"><img ng-src="{{data.avatar}}" /><span>{{data.good}}</span></div>
+									<div class="right col">{{data.content|to_text}}</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="homebox">
+					<div class="question">
+						<ul>
+							<li ng-repeat="mark in marks" class="fav">
+								<h1>{{mark.title}}</h1>
+								<i class="ion-android-bookmark" ></i>
+								<div class="row">
+									<div class="left col"><img ng-src="{{mark.avatar}}" /></div>
+									<div class="col">{{mark.name}}</div>
+									<div class="right col">{{mark.num}}个回答</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="homebox">
+					<div class="question">
+						<ul>
+							<li ng-repeat="data in datas track by $index" ng-click="openModal(data)"> 
+								<h1>{{data.title}}</h1>
+								<div class="row">
+									<div class="left col"><img ng-src="{{data.avatar}}" /><span>{{data.good}}</span></div>
+									<div class="right col">{{data.content|to_text}}</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="homebox">
+					<div class="question">
+						<ul>
+							<li ng-repeat="data in datas track by $index"  ng-click="openModal(data)">
+								<h1>{{data.title}}</h1>
+								<div class="row">
+									<div class="left col"><img ng-src="{{data.avatar}}" /><span>{{data.good}}</span></div>
+									<div class="right col">{{data.content|to_text}}</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+
+	</ion-content>
+</ion-view>

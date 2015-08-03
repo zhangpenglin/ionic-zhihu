@@ -1,0 +1,19 @@
+<div class="modal user_modal">
+	<div class="row padding login">
+		<div class="col">登录或注册</div>
+	</div>
+	<div class="list list-inset">
+		<label class="item item-input">
+			<input type="text" placeholder="邮箱或手机号" ng-model="user">
+			<div class="login_border"></div>
+		</label>
+		<label class="item item-input pass" ng-if="user">
+			<input type="password" placeholder="密码(不少于6位)">
+		</label>
+	</div>
+	<div class="row padding bottom">
+		<div class="col col-20">注册</div>
+		<div class="col"><span ng-if="!user" >社交账号登录</span></div>
+		<div class="col col-20">登录</div>
+	</div>
+</div>

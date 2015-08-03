@@ -1,0 +1,30 @@
+<div class="modal detail_modal">
+	<ion-header-bar class="bar-positive">
+		<div class="buttons" ng-click="closeModal()">
+			<button class="button button-icon button-clear ion-ios-arrow-back"></button>
+		</div>
+		<h1 class="title">{{detail.title}}</h1>
+	</ion-header-bar>
+	<ion-content>
+		<h1 class="row">
+				{{detail.title}}
+		</h1>
+		<div class="row user">
+			<div class="col img"><img ng-src="{{detail.avatar}}" alt="" /></div>
+			<div class="col name">
+				<b>{{detail.name}}</b>
+				<p>{{detail.about}}</p>
+			</div>
+			<div class="col good">
+				<div class="row">
+					<div class="button button-icon button-clear ion-thumbsup col" ng-click="good(detail)"></div>
+					<span class="col" ng-bind="detail.good"></span>
+				</div>
+			</div>
+		</div>
+		<div class="row maincontent">
+			<div class="col"  ng-bind-html="detail.content|to_trusted">
+			</div>
+		</div>
+	</ion-content>
+</div>
